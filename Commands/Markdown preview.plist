@@ -25,8 +25,8 @@ TextMate::HTMLOutput.show(:title =&gt; "Markdown Preview", :sub_title =&gt; ENV[
     Dir.chdir ENV['TM_PROJECT_DIRECTORY']
   end
 
-  if ENV["TM_FILEPATH"] &amp;&amp; File.exists?(ENV["TM_FILEPATH"])
-    io &lt;&lt; "&lt;base href='file://#{URI.escape ENV["TM_FILEPATH"]}'&gt;\n"
+  if ENV["TM_FILEPATH"] &amp;&amp; File.exist?(ENV["TM_FILEPATH"])
+    io &lt;&lt; "&lt;base href='file://#{URI::DEFAULT_PARSER.escape ENV["TM_FILEPATH"]}'&gt;\n"
   end
 
   # Convert to html then make one of the html tags above caret
