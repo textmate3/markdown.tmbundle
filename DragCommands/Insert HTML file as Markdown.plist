@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>command</key>
-	<string>python "$TM_BUNDLE_SUPPORT/bin/html2text.py" &lt;"$TM_DROPPED_FILE"|perl -pe 's/\\/\\\\/g; s/`/\\`/g; s/\$/\\\$/g'</string>
+	<string>"${TM_PYTHON:-python3}" "$TM_BUNDLE_SUPPORT/bin/html2text" &lt;"$TM_DROPPED_FILE"|perl -pe 's/\\/\\\\/g; s/`/\\`/g; s/\$/\\\$/g'</string>
 	<key>draggedFileExtensions</key>
 	<array>
 		<string>html</string>

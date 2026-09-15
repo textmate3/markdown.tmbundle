@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+"""Read HTML on standard input, write Markdown on standard output.
+
+The conversion is html2text, vendored under Support/lib. This script exists
+so the bundle has one entry point whose interface does not change when the
+vendored package's does.
+"""
+
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
+
+import html2text
+
+
+def main():
+    converter = html2text.HTML2Text()
+    converter.body_width = 0  # TextMate wraps, so the converter should not.
+    sys.stdout.write(converter.handle(sys.stdin.read()))
+
+
+if __name__ == "__main__":
+    main()
